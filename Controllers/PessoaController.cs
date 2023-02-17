@@ -31,19 +31,7 @@ namespace PeopleManager.Controllers
             
             return Ok(pessoas);
         }
-
-        [HttpPost]
-        public async Task<IActionResult> CreatePessoa([FromBody] PessoaRequest request)
-        {
-             
-            var pessoa = _mapper.Map(request, new Pessoa());
-
-            _context.Pessoas.Add(pessoa);
-            await _context.SaveChangesAsync();
-            
-            return CreatedAtAction(nameof(GetPessoa), new { pessoa.Id }, pessoa);
-        }
-
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPessoa([FromRoute] Guid id)
         {
@@ -55,6 +43,18 @@ namespace PeopleManager.Controllers
             }
 
             return Ok(_mapper.Map<PessoaResponse>(pessoa));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePessoa([FromBody] PessoaRequest request)
+        {
+             
+            var pessoa = _mapper.Map(request, new Pessoa());
+
+            _context.Pessoas.Add(pessoa);
+            await _context.SaveChangesAsync();
+            
+            return CreatedAtAction(nameof(GetPessoa), new { pessoa.Id }, pessoa);
         }
 
         [HttpPatch("{id}")]
