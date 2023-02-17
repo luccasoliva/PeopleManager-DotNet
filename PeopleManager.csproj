@@ -7,12 +7,46 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
+    <Compile Remove="PeopleManager.Contracts\**" />
+    <Compile Remove="Controllers\Endereco.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="PeopleManager.Contracts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="PeopleManager.Contracts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="PeopleManager.Contracts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="PeopleManager.Contracts\obj\PeopleManager.Contracts.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="PeopleManager.Contracts\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="PeopleManager.Contracts\obj\project.packagespec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="PeopleManager.Contracts\PeopleManager.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
