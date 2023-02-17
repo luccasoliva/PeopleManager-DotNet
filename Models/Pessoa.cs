@@ -3,14 +3,12 @@ namespace PeopleManager.Models
 {
     public class Pessoa
     { 
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
         public string? Nome { get; set; }
         public string? Email { get; set; }
-        public ICollection<Endereco> Endereco { get; set; }
+        public ICollection<Endereco> Enderecos { get; set; }
         
  
-        public Pessoa()
-        {
-        }
+        
     }
 }

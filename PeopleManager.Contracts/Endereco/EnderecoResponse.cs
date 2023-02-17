@@ -3,4 +3,5 @@
 public record EnderecoResponse(Guid Id,
                               string Logradouro,
                               string Bairro,
-                              string CidadeEstado);
+                              string CidadeEstado,
+                              Boolean IsPrincipal);

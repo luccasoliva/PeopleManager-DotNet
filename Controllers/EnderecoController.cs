@@ -36,7 +36,7 @@ namespace PeopleManager.Controllers
             public async Task<IActionResult> GetEnderecoPrincipal([FromRoute] Guid pessoaId)
             {
                 var endereco = await _mapper
-                    .ProjectTo<EnderecoResponse>(_context.Enderecos.Where(e => e.PessoaId == pessoaId && e.isPrincipal))
+                    .ProjectTo<EnderecoResponse>(_context.Enderecos.Where(e => e.PessoaId == pessoaId && e.IsPrincipal))
                     .FirstOrDefaultAsync();
 
                 return Ok(endereco);    
@@ -94,10 +94,10 @@ namespace PeopleManager.Controllers
                 var enderecos = await _context.Enderecos.Where(e => e.PessoaId == endereco.PessoaId).ToListAsync();
                 foreach (var e in enderecos)
                 {
-                    e.isPrincipal = false;
+                    e.IsPrincipal = false;
                 }
 
-                endereco.isPrincipal = true;
+                endereco.IsPrincipal = true;
                 await _context.SaveChangesAsync();
                 return NoContent();
             }
